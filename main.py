@@ -21,10 +21,16 @@ def get_inline_keyboard(exclude: str = None) -> InlineKeyboardMarkup:
     buttons = []
 
     if exclude != "about_me":
-        buttons.append([InlineKeyboardButton(text="🔍 Обо мне", callback_data="about_me")])
+        buttons.append([InlineKeyboardButton(
+            text="🔍 Обо мне", callback_data="about_me")])
 
     if exclude != "portfolio":
-        buttons.append([InlineKeyboardButton(text="💼 Портфолио", callback_data="portfolio")])
+        buttons.append([InlineKeyboardButton(
+            text="💼 Портфолио", callback_data="portfolio")])
+
+    if exclude:
+        buttons.append([InlineKeyboardButton(
+            text="🔄 Назад", callback_data="back")])
 
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
@@ -52,6 +58,15 @@ async def portfolio_callback_handler(callback: CallbackQuery) -> None:
     await callback.message.answer(
         Info.PORTFOLIO,
         reply_markup=get_inline_keyboard(exclude="portfolio")
+    )
+
+
+@dp.callback_query(lambda c: c.data == "back")
+async def back_callback_handler(callback: CallbackQuery) -> None:
+    await callback.message.delete()
+    await callback.message.answer(
+        "Привет! Этот бот — моё интерактивное резюме. Здесь ты можешь узнать больше обо мне и получить мои контакты.",
+        reply_markup=get_inline_keyboard()
     )
 
 
