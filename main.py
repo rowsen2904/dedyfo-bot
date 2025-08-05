@@ -17,19 +17,23 @@ from info import Info
 dp = Dispatcher()
 
 
-inline_keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [InlineKeyboardButton(text="🔍 Обо мне", callback_data="about_me")],
-        [InlineKeyboardButton(text="💼 Портфолио", callback_data="portfolio")]
-    ]
-)
+def get_inline_keyboard(exclude: str = None) -> InlineKeyboardMarkup:
+    buttons = []
+
+    if exclude != "about_me":
+        buttons.append([InlineKeyboardButton(text="🔍 Обо мне", callback_data="about_me")])
+
+    if exclude != "portfolio":
+        buttons.append([InlineKeyboardButton(text="💼 Портфолио", callback_data="portfolio")])
+
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
     await message.answer(
         "Привет! Этот бот — моё интерактивное резюме. Здесь ты можешь узнать больше обо мне и получить мои контакты.",
-        reply_markup=inline_keyboard
+        reply_markup=get_inline_keyboard()
     )
 
 
@@ -38,7 +42,7 @@ async def about_me_callback_handler(callback: CallbackQuery) -> None:
     await callback.message.delete()
     await callback.message.answer(
         Info.ABOUT_ME,
-        reply_markup=inline_keyboard
+        reply_markup=get_inline_keyboard(exclude="about_me")
     )
 
 
@@ -47,7 +51,7 @@ async def portfolio_callback_handler(callback: CallbackQuery) -> None:
     await callback.message.delete()
     await callback.message.answer(
         Info.PORTFOLIO,
-        reply_markup=inline_keyboard
+        reply_markup=get_inline_keyboard(exclude="portfolio")
     )
 
 
