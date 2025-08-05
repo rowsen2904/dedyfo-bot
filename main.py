@@ -19,20 +19,36 @@ dp = Dispatcher()
 
 inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="🔍 Обо мне", callback_data="about_me")]
+        [InlineKeyboardButton(text="🔍 Обо мне", callback_data="about_me")],
+        [InlineKeyboardButton(text="💼 Портфолио", callback_data="portfolio")]
     ]
 )
 
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
-    await message.answer("Hello! I'm a bot created with aiogram.", reply_markup=inline_keyboard)
+    await message.answer(
+        "Привет! Этот бот — моё интерактивное резюме. Здесь ты можешь узнать больше обо мне и получить мои контакты.",
+        reply_markup=inline_keyboard
+    )
 
 
 @dp.callback_query(lambda c: c.data == "about_me")
 async def about_me_callback_handler(callback: CallbackQuery) -> None:
     await callback.message.delete()
-    await callback.message.answer(Info.ABOUT_ME)
+    await callback.message.answer(
+        Info.ABOUT_ME,
+        reply_markup=inline_keyboard
+    )
+
+
+@dp.callback_query(lambda c: c.data == "portfolio")
+async def portfolio_callback_handler(callback: CallbackQuery) -> None:
+    await callback.message.delete()
+    await callback.message.answer(
+        Info.PORTFOLIO,
+        reply_markup=inline_keyboard
+    )
 
 
 async def main():
