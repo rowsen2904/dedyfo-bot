@@ -31,6 +31,7 @@ async def command_start_handler(message: Message) -> None:
 
 @dp.callback_query(lambda c: c.data == "about_me")
 async def about_me_callback_handler(callback: CallbackQuery) -> None:
+    await callback.message.delete()
     await callback.message.answer(Info.ABOUT_ME)
 
 
