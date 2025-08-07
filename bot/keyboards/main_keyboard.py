@@ -12,6 +12,10 @@ def get_inline_keyboard(exclude: str = None) -> InlineKeyboardMarkup:
         buttons.append([InlineKeyboardButton(
             text="💼 Портфолио", callback_data="portfolio")])
 
+    if exclude != "quotes":
+        buttons.append([InlineKeyboardButton(
+            text="💬 Цитаты", callback_data="quotes")])
+
     if exclude:
         buttons.append([InlineKeyboardButton(
             text="🔄 Назад", callback_data="back")])
