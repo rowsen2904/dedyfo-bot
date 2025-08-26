@@ -1,12 +1,7 @@
-from aiogram import Bot, Dispatcher
-from aiogram.client.default import DefaultBotProperties
-from aiogram.enums import ParseMode
+"""Professional bot package with dependency injection."""
 
-from bot.config import Config
+from .core.container import Container
+from .core.dependencies import get_container
 
-bot = Bot(
-    token=Config.TOKEN,
-    default=DefaultBotProperties(parse_mode=ParseMode.HTML)
-)
-
-dp = Dispatcher()
+__version__ = "2.0.0"
+__all__ = ["Container", "get_container"]
