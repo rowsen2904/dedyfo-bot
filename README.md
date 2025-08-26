@@ -7,114 +7,114 @@
 [![Docker](https://img.shields.io/badge/deployment-Docker-blue.svg)](https://docker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Профессиональный Telegram-бот с продвинутой архитектурой** — демонстрация навыков senior разработчика в создании production-ready приложений.
+**A professional Telegram bot with advanced architecture** — a demonstration of senior-level skills in building production-ready applications.
 
 ---
 
-## ✨ Особенности
+## ✨ Features
 
-### 🏗️ **Архитектура высшего уровня**
-- **Dependency Injection** с контейнером зависимостей
-- **Middleware Pipeline** для обработки запросов
-- **Service Layer** для бизнес-логики
-- **Repository Pattern** для работы с данными
-- **Clean Architecture** принципы
+### 🏗️ **Top-Tier Architecture**
+- **Dependency Injection** with a DI container
+- **Middleware Pipeline** for request processing
+- **Service Layer** for business logic
+- **Repository Pattern** for data access
+- **Clean Architecture** principles
 
 ### 🚀 **Production-Ready**
-- **PostgreSQL** с асинхронным ORM (SQLAlchemy)
-- **Redis** кэширование с TTL
-- **Structured Logging** с JSON форматом
-- **Health Checks** и мониторинг
-- **Graceful Shutdown** обработка
-- **Error Handling** с retry механизмами
+- **PostgreSQL** with async ORM (SQLAlchemy)
+- **Redis** caching with TTL
+- **Structured Logging** with JSON format
+- **Health Checks** and monitoring
+- **Graceful Shutdown** handling
+- **Error Handling** with retry mechanisms
 
-### 📊 **Аналитика и Мониторинг**
-- Детальная аналитика пользователей
-- Трекинг производительности
-- Системные метрики
-- Prometheus готовность
-- Grafana дашборды
+### 📊 **Analytics & Monitoring**
+- Detailed user analytics
+- Performance tracking
+- System metrics
+- Prometheus ready
+- Grafana dashboards
 
-### 🔧 **Функциональность**
-- **Интерактивное резюме** разработчика
-- **Погода** в реальном времени
-- **Новости** по категориям
-- **Криптовалюты** курсы
-- **Мотивационные цитаты**
-- **Развлекательный контент**
+### 🔧 **Functionality**
+- **Interactive developer resume**
+- **Real-time weather**
+- **News** by category
+- **Cryptocurrency** rates
+- **Motivational quotes**
+- **Entertainment content**
 
-### 👑 **Админ-панель**
-- Статистика пользователей
-- Рассылка сообщений
-- Управление системой
-- Мониторинг производительности
-- Очистка кэша
-
----
-
-## 🛠️ Технический стек
-
-| Категория | Технологии |
-|-----------|------------|
-| **Backend** | Python 3.11+, aiogram 3.x, aiohttp |
-| **Database** | PostgreSQL, SQLAlchemy (async), Alembic |
-| **Cache** | Redis, aioredis |
-| **Deployment** | Docker, docker-compose |
-| **Monitoring** | Prometheus, Grafana, Sentry |
-| **Logging** | structlog, JSON logging |
-| **Security** | Rate limiting, auth middleware |
-| **Testing** | pytest, pytest-asyncio |
-| **Code Quality** | black, flake8, mypy |
+### 👑 **Admin Panel**
+- User statistics
+- Mass messaging
+- System management
+- Performance monitoring
+- Cache management
 
 ---
 
-## 🚀 Быстрый старт
+## 🛠️ Tech Stack
 
-### 1️⃣ Клонирование репозитория
+| Category      | Technologies                                 |
+|--------------|----------------------------------------------|
+| **Backend**  | Python 3.11+, aiogram 3.x, aiohttp           |
+| **Database** | PostgreSQL, SQLAlchemy (async), Alembic      |
+| **Cache**    | Redis, aioredis                              |
+| **Deployment**| Docker, docker-compose                      |
+| **Monitoring**| Prometheus, Grafana, Sentry                 |
+| **Logging**  | structlog, JSON logging                      |
+| **Security** | Rate limiting, auth middleware               |
+| **Testing**  | pytest, pytest-asyncio                       |
+| **Code Quality** | black, flake8, mypy                      |
+
+---
+
+## 🚀 Quick Start
+
+### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/rowsen2904/dedyfo-bot.git
 cd dedyfo-bot
 ```
 
-### 2️⃣ Настройка окружения
+### 2️⃣ Set up environment
 ```bash
-# Копировать конфигурацию
+# Copy configuration
 cp env.example .env
 
-# Отредактировать .env файл
+# Edit the .env file
 nano .env
 ```
 
-### 3️⃣ Запуск с Docker (рекомендуется)
+### 3️⃣ Run with Docker (recommended)
 ```bash
-# Development режим
+# Development mode
 make docker-dev
 
-# Production режим
+# Production mode
 make docker-prod
 ```
 
-### 4️⃣ Локальная разработка
+### 4️⃣ Local development
 ```bash
-# Установка зависимостей
+# Install dependencies
 make install
 
-# Настройка dev окружения
+# Set up dev environment
 make dev
 
-# Запуск бота
+# Run the bot
 make run
 ```
 
 ---
 
-## 📋 Конфигурация
+## 📋 Configuration
 
-### Основные переменные `.env`
+### Main `.env` variables
 ```bash
 # Bot Configuration
 BOT_TOKEN=your_bot_token_here
-WEBHOOK_URL=https://yourdomain.com/webhook  # Опционально для webhook
+WEBHOOK_URL=https://yourdomain.com/webhook  # Optional for webhook
 
 # Database
 DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/dedyfo_bot
@@ -138,133 +138,133 @@ SENTRY_DSN=your_sentry_dsn
 
 ---
 
-## 🐳 Docker развертывание
+## 🐳 Docker Deployment
 
 ### Development
 ```bash
-# Запуск всех сервисов
+# Start all services
 docker-compose up --build
 
-# Только бот с зависимостями
+# Only bot with dependencies
 docker-compose up bot postgres redis
 ```
 
 ### Production
 ```bash
-# Production с мониторингом
+# Production with monitoring
 docker-compose --profile monitoring up -d
 
-# Webhook режим с Nginx
+# Webhook mode with Nginx
 docker-compose --profile webhook up -d
 ```
 
-### Полезные команды
+### Useful commands
 ```bash
-# Логи бота
+# Bot logs
 make logs
 
-# Доступ к контейнеру
+# Access container shell
 make docker-shell
 
-# Миграции БД
+# Database migrations
 make db-upgrade
 
-# Бэкап БД
+# Database backup
 make backup
 ```
 
 ---
 
-## 🏗️ Архитектура проекта
+## 🏗️ Project Structure
 
 ```
 dedyfo-bot/
-├── bot/                          # Основное приложение
-│   ├── config/                   # Конфигурация и настройки
-│   ├── core/                     # DI контейнер и зависимости  
-│   ├── database/                 # Модели БД и подключения
-│   ├── handlers/                 # Обработчики команд/событий
-│   ├── keyboards/                # Клавиатуры для интерфейса
-│   ├── middleware/               # Middleware компоненты
-│   ├── services/                 # Бизнес-логика и сервисы
-│   ├── texts/                    # Тексты и контент
-│   └── app.py                    # Настройка приложения
-├── tests/                        # Тесты
-├── migrations/                   # Миграции Alembic
-├── monitoring/                   # Конфигурация мониторинга
-├── nginx/                        # Конфигурация Nginx
-├── docker-compose.yml            # Docker окружение
-├── Dockerfile                    # Образ приложения
-├── Makefile                      # Команды разработки
-└── main.py                       # Точка входа
+├── bot/                          # Main application
+│   ├── config/                   # Configuration and settings
+│   ├── core/                     # DI container and dependencies
+│   ├── database/                 # DB models and connections
+│   ├── handlers/                 # Command/event handlers
+│   ├── keyboards/                # UI keyboards
+│   ├── middleware/               # Middleware components
+│   ├── services/                 # Business logic and services
+│   ├── texts/                    # Texts and content
+│   └── app.py                    # App setup
+├── tests/                        # Tests
+├── migrations/                   # Alembic migrations
+├── monitoring/                   # Monitoring config
+├── nginx/                        # Nginx config
+├── docker-compose.yml            # Docker environment
+├── Dockerfile                    # App image
+├── Makefile                      # Dev commands
+└── main.py                       # Entry point
 ```
 
 ---
 
-## 📊 Функциональность
+## 📊 Features
 
-### 🎯 **Основные возможности**
-- **👤 Обо мне** — детальная информация о разработчике
-- **💼 Портфолио** — проекты с описанием и ссылками
-- **🌤 Погода** — актуальный прогноз для любого города
-- **📰 Новости** — свежие новости по категориям
-- **💬 Цитаты** — мотивационные цитаты с кэшированием
-- **₿ Криптовалюты** — актуальные курсы популярных монет
-- **😄 Развлечения** — шутки и интересные факты
+### 🎯 **Core Features**
+- **👤 About Me** — detailed developer info
+- **💼 Portfolio** — projects with descriptions and links
+- **🌤 Weather** — up-to-date forecast for any city
+- **📰 News** — latest news by category
+- **💬 Quotes** — motivational quotes with caching
+- **₿ Crypto** — current rates for popular coins
+- **😄 Entertainment** — jokes and fun facts
 
-### 🔧 **Администрирование**
-- **📊 Аналитика** — подробная статистика использования
-- **👥 Пользователи** — управление пользователями
-- **📢 Рассылки** — массовые уведомления
-- **⚙️ Система** — мониторинг производительности
-- **🗄️ Данные** — управление кэшем и БД
+### 🔧 **Administration**
+- **📊 Analytics** — detailed usage statistics
+- **👥 Users** — user management
+- **📢 Broadcasts** — mass notifications
+- **⚙️ System** — performance monitoring
+- **🗄️ Data** — cache and DB management
 
-### 🔒 **Безопасность**
-- **Rate Limiting** — защита от спама
-- **Auth Middleware** — контроль доступа к админ-функциям
-- **Input Validation** — валидация пользовательского ввода
-- **Error Handling** — безопасная обработка ошибок
+### 🔒 **Security**
+- **Rate Limiting** — anti-spam protection
+- **Auth Middleware** — admin access control
+- **Input Validation** — user input validation
+- **Error Handling** — safe error processing
 
 ---
 
-## 🧪 Тестирование
+## 🧪 Testing
 
 ```bash
-# Запуск всех тестов
+# Run all tests
 make test
 
-# Тесты с покрытием
+# Coverage report
 pytest --cov=bot --cov-report=html
 
-# Линтинг кода
+# Lint code
 make lint
 
-# Форматирование
+# Format code
 make format
 
-# Проверка безопасности
+# Security check
 make security-check
 ```
 
 ---
 
-## 📈 Мониторинг
+## 📈 Monitoring
 
-### Prometheus метрики
-- Request/Response времена
-- Количество активных пользователей
-- Ошибки и исключения
-- Использование ресурсов
+### Prometheus metrics
+- Request/Response times
+- Number of active users
+- Errors and exceptions
+- Resource usage
 
-### Grafana дашборды
-- Производительность бота
-- Аналитика пользователей
-- Системные метрики
-- Алерты и уведомления
+### Grafana dashboards
+- Bot performance
+- User analytics
+- System metrics
+- Alerts and notifications
 
-### Логирование
+### Logging
 ```python
-# Structured JSON логи
+# Structured JSON logs
 {
   "timestamp": "2024-01-15T10:30:00Z",
   "level": "INFO",
@@ -304,95 +304,95 @@ jobs:
 
 ---
 
-## 🤝 Разработка
+## 🤝 Development
 
-### Настройка dev окружения
+### Dev environment setup
 ```bash
-# Клонирование и настройка
+# Clone and setup
 git clone <repo-url>
 cd dedyfo-bot
 make quick-start
 
-# Создание новой миграции
+# Create new migration
 make create-migration NAME="add_user_preferences"
 
-# Запуск в dev режиме
+# Run in dev mode
 make run
 ```
 
 ### Code Style
-- **Black** для форматирования
-- **flake8** для линтинга
-- **mypy** для type checking
-- **pytest** для тестирования
+- **Black** for formatting
+- **flake8** for linting
+- **mypy** for type checking
+- **pytest** for testing
 
 ### Git workflow
-1. Создать feature branch
-2. Внести изменения
-3. Запустить тесты `make check`
-4. Создать Pull Request
+1. Create a feature branch
+2. Make changes
+3. Run tests `make check`
+4. Create a Pull Request
 5. Code Review
-6. Merge в main
+6. Merge to main
 
 ---
 
 ## 📝 API Documentation
 
-### Основные эндпоинты (webhook режим)
+### Main endpoints (webhook mode)
 ```
 POST /webhook          # Telegram webhook
-GET  /health          # Health check
-GET  /metrics         # Prometheus metrics
+GET  /health           # Health check
+GET  /metrics          # Prometheus metrics
 ```
 
-### Основные команды бота
+### Main bot commands
 ```
-/start                # Запуск бота
-/help                 # Помощь
-/admin                # Админ-панель (только для админов)
+/start                # Start the bot
+/help                 # Help
+/admin                # Admin panel (admins only)
 ```
 
 ---
 
 ## 🚧 Roadmap
 
-- [ ] **API Gateway** интеграция
-- [ ] **Kubernetes** деплой конфигурация  
-- [ ] **Multi-language** поддержка
-- [ ] **Voice Messages** обработка
-- [ ] **AI Integration** с ChatGPT
-- [ ] **Mobile App** для админов
-- [ ] **WebUI** административная панель
+- [ ] **API Gateway** integration
+- [ ] **Kubernetes** deployment config
+- [ ] **Multi-language** support
+- [ ] **Voice Messages** processing
+- [ ] **AI Integration** with ChatGPT
+- [ ] **Mobile App** for admins
+- [ ] **WebUI** admin panel
 
 ---
 
-## 💡 Почему этот проект особенный?
+## 💡 Why is this project special?
 
-### 🎯 **Senior подход**
-- Не просто "работающий код", а **архитектурно продуманное решение**
-- **Production-ready** с первого дня
-- **Масштабируемость** и **поддерживаемость**
-- **Best Practices** индустрии
+### 🎯 **Senior Approach**
+- Not just "working code", but **architecturally sound solutions**
+- **Production-ready** from day one
+- **Scalability** and **maintainability**
+- **Industry Best Practices**
 
-### 🔥 **Технические highlights**
-- **Async/await** везде для производительности
-- **Type hints** для надежности кода
-- **Dependency Injection** для тестируемости
-- **Structured Logging** для отладки
-- **Comprehensive Testing** для качества
+### 🔥 **Technical Highlights**
+- **Async/await** everywhere for performance
+- **Type hints** for code reliability
+- **Dependency Injection** for testability
+- **Structured Logging** for debugging
+- **Comprehensive Testing** for quality
 
-### 📈 **Демонстрация навыков**
-- **System Design** — проектирование архитектуры
+### 📈 **Skill Demonstration**
+- **System Design** — architecture planning
 - **DevOps** — containerization, CI/CD
-- **Database Design** — эффективные схемы данных  
-- **API Integration** — работа с внешними сервисами
-- **Monitoring** — наблюдаемость системы
+- **Database Design** — efficient data schemas
+- **API Integration** — working with external services
+- **Monitoring** — system observability
 
 ---
 
-## 👨‍💻 Автор
+## 👨‍💻 Author
 
-**Ровшен Байрамов** — Backend Developer
+**Rovshen Bayramov** — Backend Developer
 
 - 🔗 **Telegram**: [@ded1fo](https://t.me/ded1fo)
 - 💼 **LinkedIn**: [rovshen-bayramov](https://linkedin.com/in/rovshen-bayramov-952a54260/)
@@ -401,23 +401,23 @@ GET  /metrics         # Prometheus metrics
 
 ---
 
-## 📄 Лицензия
+## 📄 License
 
-Этот проект лицензирован под MIT License - подробности в файле [LICENSE](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Благодарности
+## 🙏 Acknowledgements
 
-- **aiogram** за отличную библиотеку для Telegram ботов
-- **SQLAlchemy** за мощный ORM
-- **Redis** за быстрое кэширование
-- **Docker** за упрощение деплоя
-- **Open Source Community** за вдохновение
+- **aiogram** for an excellent Telegram bot framework
+- **SQLAlchemy** for a powerful ORM
+- **Redis** for fast caching
+- **Docker** for deployment simplification
+- **Open Source Community** for inspiration
 
 ---
 
 <div align="center">
-  <h3>⭐ Если проект понравился — поставьте звезду!</h3>
-  <p>Этот бот демонстрирует professional подход к разработке Telegram ботов</p>
+  <h3>⭐ If you like this project — give it a star!</h3>
+  <p>This bot demonstrates a professional approach to Telegram bot development</p>
 </div>
